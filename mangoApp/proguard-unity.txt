@@ -1,0 +1,4 @@
+-keep class org.susnetwork.mangocore.tools.JniBridge { *; }
+-keepclasseswithmembernames,includedescriptorclasses class * {
+    native <methods>;
+}

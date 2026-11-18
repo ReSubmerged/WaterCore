@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/selector_root" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="?android:attr/colorBackground" android:padding="16dp">
+    <FrameLayout android:id="@+id/main_content" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+      <LinearLayout android:id="@+id/home_header" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <ImageView android:layout_width="44dp" android:layout_height="44dp" android:layout_marginEnd="12dp" android:src="@mipmap/app_icon" android:contentDescription="@string/app_name" />
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="start">
+          <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/brand_name" android:textColor="?android:attr/textColorPrimary" android:textSize="26sp" android:textStyle="bold" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/brand_subtitle" android:textColor="?android:attr/textColorSecondary" android:textSize="14sp" />
+        </LinearLayout>
+      </LinearLayout>
+      <FrameLayout android:id="@+id/home_content" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="8dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="top" android:layout_marginTop="88dp" android:orientation="vertical" android:padding="20dp" android:background="@drawable/bg_selector_card" android:elevation="3dp">
+          <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+            <ImageView android:id="@+id/game_icon" android:layout_width="64dp" android:layout_height="64dp" android:contentDescription="@string/game_icon" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="Among Us" android:textSize="20sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" />
+          </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:id="@+id/launch_button" android:layout_width="190dp" android:layout_height="54dp" android:layout_gravity="bottom|center_horizontal" android:layout_marginBottom="16dp"
+            android:orientation="horizontal" android:gravity="center" android:background="@drawable/bg_launch_button" android:clickable="true" android:focusable="true" android:elevation="2dp">
+          <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_play" android:tint="#FFFFFFFF" android:contentDescription="@string/launch" />
+          <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="@string/launch" android:textColor="#FFFFFFFF" android:textSize="16sp" android:textStyle="bold" />
+        </LinearLayout>
+      </FrameLayout>
+      <LinearLayout android:id="@+id/mods_content" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:gravity="center_vertical" android:orientation="horizontal">
+          <ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_tab_mods" android:tint="?android:attr/textColorPrimary" android:contentDescription="@string/tab_mods" />
+          <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="@string/tab_mods" android:textSize="22sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" />
+        </LinearLayout>
+        <ListView android:id="@+id/mods_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:divider="@android:color/transparent" android:dividerHeight="8dp" android:clipToPadding="false" android:paddingTop="8dp" />
+        <ListView android:id="@+id/mods_list" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:divider="@android:color/transparent" android:dividerHeight="8dp" android:clipToPadding="false" android:paddingTop="8dp" />
+        <TextView android:id="@+id/mods_empty" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:gravity="center" android:text="@string/mods_empty" android:textColor="?android:attr/textColorSecondary" android:visibility="gone" />
+      </LinearLayout>
+      <LinearLayout android:id="@+id/mod_detail_content" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:gravity="center_vertical" android:orientation="horizontal">
+          <ImageButton android:id="@+id/mod_detail_back" android:layout_width="48dp" android:layout_height="48dp" android:background="?android:attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_back" android:tint="?android:attr/textColorPrimary" android:contentDescription="@string/settings_action_back" />
+          <TextView android:id="@+id/mod_detail_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:textSize="20sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" />
+        </LinearLayout>
+        <ImageView android:id="@+id/mod_detail_icon" android:layout_width="144dp" android:layout_height="144dp" android:layout_gravity="center_horizontal" android:layout_marginTop="36dp" android:background="@drawable/bg_mod_action" android:scaleType="centerCrop" android:contentDescription="@string/mod_icon" />
+        <EditText android:id="@+id/mod_display_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:hint="@string/mod_name_hint" android:singleLine="true" android:textColor="?android:attr/textColorPrimary" />
+        <Button android:id="@+id/mod_save_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:text="@string/mod_save_name" />
+        <Button android:id="@+id/mod_upload_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center_horizontal" android:layout_marginTop="20dp" android:text="@string/mod_upload_icon" />
+      </LinearLayout>
+      <LinearLayout android:id="@+id/shop_content" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:orientation="vertical" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:gravity="center_vertical" android:orientation="horizontal">
+          <ImageButton android:id="@+id/shop_back" android:layout_width="48dp" android:layout_height="48dp" android:background="?android:attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_back" android:tint="?android:attr/textColorPrimary" android:contentDescription="@string/settings_action_back" />
+          <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="@string/mods_shop_title" android:textSize="22sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" />
+        </LinearLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center" android:text="@string/shop_empty" android:textSize="18sp" android:textColor="?android:attr/textColorSecondary" />
+      </LinearLayout>
+      <LinearLayout android:id="@+id/settings_content" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:visibility="gone">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab_settings" android:textSize="24sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" />
+        <LinearLayout android:id="@+id/personalisation_entry" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:orientation="horizontal" android:gravity="center_vertical" android:padding="16dp" android:background="@drawable/bg_mod_action" android:clickable="true" android:focusable="true">
+          <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/personalisation" android:textSize="16sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" />
+          <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_back" android:rotation="180" android:tint="?android:attr/textColorSecondary" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:orientation="vertical" android:padding="16dp" android:background="@drawable/bg_mod_action">
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/custom_shop_address" android:textSize="16sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:text="@string/custom_shop_address_desc" android:textSize="13sp" android:textColor="?android:attr/textColorSecondary" />
+          <EditText android:id="@+id/custom_shop_address" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" android:hint="https://example.com/shop.json" android:inputType="textUri" android:singleLine="true" android:textColor="?android:attr/textColorPrimary" />
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:layout_marginBottom="8dp" android:text="@string/developer_options" android:textSize="14sp" android:textStyle="bold" android:textColor="#FF36A9E1" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bg_mod_action">
+          <androidx.appcompat.widget.SwitchCompat android:id="@+id/home_switch_libunity" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:text="@string/settings_libunity_title" android:textColor="?android:attr/textColorPrimary" />
+          <androidx.appcompat.widget.SwitchCompat android:id="@+id/home_switch_il2cpp2mono" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:text="@string/settings_il2cpp2mono_title" android:textColor="?android:attr/textColorPrimary" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:orientation="vertical" android:padding="16dp" android:background="@drawable/bg_mod_action">
+          <androidx.appcompat.widget.SwitchCompat android:id="@+id/switch_susnetwork_login" android:layout_width="match_parent" android:layout_height="wrap_content" android:checked="true" android:enabled="false" android:text="@string/susnetwork_login_title" android:textColor="?android:attr/textColorPrimary" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="@string/susnetwork_login_desc" android:textSize="13sp" android:textColor="?android:attr/textColorSecondary" />
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:id="@+id/personalisation_content" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:visibility="gone">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="56dp" android:orientation="horizontal" android:gravity="center_vertical">
+          <ImageButton android:id="@+id/personalisation_back" android:layout_width="48dp" android:layout_height="48dp" android:background="?android:attr/selectableItemBackgroundBorderless" android:src="@drawable/ic_back" android:tint="?android:attr/textColorPrimary" android:contentDescription="@string/settings_action_back" />
+          <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:text="@string/personalisation" android:textSize="22sp" android:textStyle="bold" android:textColor="?android:attr/textColorPrimary" />
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20dp" android:layout_marginBottom="8dp" android:text="App Icon" android:textSize="14sp" android:textStyle="bold" android:textColor="#FF36A9E1" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical" android:padding="12dp" android:background="@drawable/bg_mod_action">
+          <ImageView android:id="@+id/app_icon_choice" android:layout_width="56dp" android:layout_height="56dp" android:src="@mipmap/app_icon" android:contentDescription="@string/app_icon_default" />
+        </LinearLayout>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:layout_marginBottom="8dp" android:text="App Theme" android:textSize="14sp" android:textStyle="bold" android:textColor="#FF36A9E1" />
+        <Spinner android:id="@+id/app_theme_spinner" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/bg_mod_action" android:padding="12dp" />
+      </LinearLayout>
+      <LinearLayout android:id="@+id/mod_actions" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="bottom|end" android:layout_marginEnd="16dp" android:layout_marginBottom="88dp" android:orientation="vertical" android:visibility="gone">
+        <LinearLayout android:id="@+id/action_shop" android:layout_width="wrap_content" android:layout_height="52dp" android:layout_marginBottom="10dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="18dp" android:paddingEnd="18dp" android:background="@drawable/bg_mod_action" android:elevation="4dp" android:clickable="true" android:focusable="true">
+          <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_shop" android:tint="?android:attr/textColorPrimary" />
+          <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="@string/mods_discover_shop" android:textColor="?android:attr/textColorPrimary" android:textSize="14sp" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/action_upload" android:layout_width="wrap_content" android:layout_height="52dp" android:gravity="center_vertical" android:orientation="horizontal" android:paddingStart="18dp" android:paddingEnd="18dp" android:background="@drawable/bg_mod_action" android:elevation="4dp" android:clickable="true" android:focusable="true">
+          <ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_folder" android:tint="?android:attr/textColorPrimary" />
+          <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="12dp" android:text="@string/mods_upload_custom" android:textColor="?android:attr/textColorPrimary" android:textSize="14sp" />
+        </LinearLayout>
+      </LinearLayout>
+      <ImageButton android:id="@+id/add_mod_button" android:layout_width="56dp" android:layout_height="56dp" android:layout_gravity="bottom|end" android:layout_margin="16dp"
+        android:background="@drawable/bg_add_mod_button" android:src="@drawable/ic_add" android:tint="#FFFFFFFF" android:contentDescription="@string/mods_add" android:elevation="6dp" android:visibility="gone" />
+    </FrameLayout>
+    <LinearLayout android:id="@+id/bottom_tabs" android:layout_width="match_parent" android:layout_height="72dp"
+        android:orientation="horizontal" android:gravity="center" android:background="@drawable/bg_bottom_tabs"
+        android:elevation="8dp" android:paddingTop="6dp" android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp" android:clipToOutline="true">
+        <LinearLayout android:id="@+id/tab_home" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:orientation="vertical" android:clickable="true" android:focusable="true" android:background="?android:attr/selectableItemBackground">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_tab_home" android:contentDescription="@string/tab_home" android:tint="?android:attr/textColorSecondary" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab_home" android:textSize="12sp" android:textColor="?android:attr/textColorSecondary" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/tab_mods" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:orientation="vertical" android:clickable="true" android:focusable="true" android:background="?android:attr/selectableItemBackground">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_tab_mods" android:contentDescription="@string/tab_mods" android:tint="?android:attr/textColorSecondary" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab_mods" android:textSize="12sp" android:textColor="?android:attr/textColorSecondary" />
+        </LinearLayout>
+        <LinearLayout android:id="@+id/tab_settings" android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1"
+            android:gravity="center" android:orientation="vertical" android:clickable="true" android:focusable="true" android:background="?android:attr/selectableItemBackground">
+            <ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_settings" android:contentDescription="@string/tab_settings" android:tint="?android:attr/textColorSecondary" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tab_settings" android:textSize="12sp" android:textColor="?android:attr/textColorSecondary" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:id="@+id/selector_loading" android:layout_width="match_parent" android:layout_height="wrap_content" android:visibility="gone">
+        <ProgressBar android:layout_width="48dp" android:layout_height="48dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="match_parent" android:text="@string/loading" />
+    </LinearLayout>
+    <ListView android:id="@+id/selector_list" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+    <TextView android:id="@+id/selector_empty" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" />
+</LinearLayout>

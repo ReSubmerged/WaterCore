@@ -1,6 +1,26 @@
 .idea/
+.vscode/
 .gradle/
+.kotlin/
 .vs/
 .cxx/
-build/
+.externalNativeBuild/
+**/build/
 local.properties
+base64.txt
+
+# Android Studio and OS-generated files
+*.iml
+captures/
+.DS_Store
+Thumbs.db
+
+# Build outputs and local signing credentials
+*.apk
+*.aab
+*.jks
+*.keystore
+
+# Local logs and JVM crash dumps
+*.log
+hs_err_pid*

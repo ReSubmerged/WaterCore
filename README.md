@@ -41,11 +41,11 @@ IF you are using il2cpp2mono in your game, you CANNOT just use all of the origin
 Use the Gradle wrapper from the repository root:
 
 ```powershell
-.\gradlew.bat :fusionApp:assembleDebug
+.\gradlew.bat :mangoApp:assembleDebug
 ```
 
 Optional clean build:
 
 ```powershell
-.\gradlew.bat clean :fusionApp:assembleDebug
+.\gradlew.bat clean :mangoApp:assembleDebug
 ```

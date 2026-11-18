@@ -23,6 +23,12 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Install CMake
+        run: sdkmanager "cmake;3.31.6"
+
       - name: Make gradlew executable
         run: chmod +x gradlew
 
@@ -37,29 +43,29 @@ jobs:
 
       - name: Build Release APK
         if: github.ref_type == 'tag'
-        run: ./gradlew assembleRelease
+        run: ./gradlew :mangoApp:copyReleaseApk
         env:
           KEYSTORE_PATH: ${{ runner.temp }}/keystore.jks
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEY_ALIAS: mangocore
+          KEY_PASSWORD: ${{ secrets.MANGO_PASSWD }}
+          KEYSTORE_PASSWORD: ${{ secrets.MANGO_PASSWD }}
 
       - name: Upload Debug APK
         if: github.ref_type != 'tag'
         uses: actions/upload-artifact@v6
         with:
-          name: fusionApp-debug
-          path: fusionApp/build/outputs/apk/debug/*.apk
+          name: mangoApp-debug
+          path: mangoApp/build/outputs/apk/debug/*.apk
 
       - name: Upload Release APK
         if: github.ref_type == 'tag'
         uses: actions/upload-artifact@v6
         with:
-          name: fusionApp-release-${{ github.ref_name }}
-          path: fusionApp/build/outputs/apk/release/*.apk
+          name: mangoApp-release-${{ github.ref_name }}
+          path: build/mangoApp-release.apk
 
       - uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
           draft: true
-          files: fusionApp/build/outputs/apk/release/*.apk
+          files: build/mangoApp-release.apk
