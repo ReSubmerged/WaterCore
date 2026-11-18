@@ -24,3 +24,7 @@ Thumbs.db
 # Local logs and JVM crash dumps
 *.log
 hs_err_pid*
+/Get
+/Run
+/Task
+/\[CXX1300\]
