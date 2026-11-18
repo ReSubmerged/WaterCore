@@ -1,40 +1,35 @@
-# Fusion Core
+<p align="center">
+  <img src="logo.png" alt="Logo" width="300">
+</p>
 
-[![](https://dcbadge.limes.pink/api/server/MzufgkERdS)](https://discord.gg/MzufgkERdS)
 
-Unity modding framework for Android IL2CPP games.
+<h3 align="center">MangoCore</h3>
+<h3 align="center">SusNetwork's Android launcher based on <a href="https://github.com/All-Of-Us-Mods/FusionCore">FusionCore</a></h3>
 
-## Compatibility
+<p align="center">
+  <img src="https://img.shields.io/github/stars/SusNetwork/MangoCore" alt="Stars">
+  <img src="https://img.shields.io/badge/unity-%23000000.svg?logo=unity&logoColor=white" alt="Unity">
+  <img src="https://img.shields.io/badge/Android-%233DDC84.svg?logo=android&logoColor=white" alt="Android">
+  <img src="https://img.shields.io/badge/GitHub%20Actions-%232671E5.svg?logo=GitHubActions&logoColor=white" alt="GitHub Actions">
+  <img src="https://img.shields.io/badge/Discord-%235865F2.svg?logo=discord&logoColor=white" alt="Discord">
+</p>
 
-Current minimum supported Android version is 7.0 (API level 24).
-No guarantees it will work on that version though, 
-as it has only been tested on Android 11 (API level 30) and above.
+MangoCore is an Among Us launcher that uses SusNetwork's servers. It supports mods & plugins.
 
-As of writing this, PC versions of BepInEx and MelonLoader still use .NET 6.0 and legacy MonoMod.
-However, FusionCore uses .NET 10.0 and MonoMod reorganized, so if you directly use MonoMod in your mods,
-you will need to make it compatible with the newer MonoMod version.
+Requires Android 7+ ; however, MangoCore hasn't been tested on versions lower than Android 12.
 
-There is no Lemon/Melonloader support yet, just BepInEx Fusion (my custom fork of BepInEx).
+### Features
 
-FusionCore automatically detects Unity version, then downloads the unstripped libunity.so file. You only need to follow the configuration steps below to make things work.
+| Feature | State | Description |
+| ----- | ----- | ----- |
+| Mod shop | Work in progress | Allows you to download mods from an API instead of uploading your own DLLs. |
+| SusNetwork | Stopped | SusNetwork is in active development; as soon as SusNetwork comes out, MangoCore will be updated. |
 
-## Can you add support for "X" game?
+## Mods
 
-Make a new issue with the following information:
-- Game name and version
-- Android package name (e.g. `com.example.game`)
-- Unity version (if known, otherwise I can check it myself)
-- Any other relevant information (e.g. if the game uses a custom UnityPlayerActivity, or if it has anti-cheat)
+You can upload custom DLLs to load plugins & mods. There is no security check: do not run or add untrusted mods.
 
-We will try to add support, but there are no guarantees. If you want to help, you can also submit a pull request with the necessary changes to support the game.
-
-## Configuration
-
-Previous versions of FusionCore required adding the game activity to the manifest and modifying the list of supported games. This is no longer required as FusionCore scans installed apps for IL2CPP unity games and can launch them without manifest requirements.
-
-Just download the APK (or build the app, if not available), and run!
-
-IF you are using il2cpp2mono in your game, you CANNOT just use all of the original PC dlls. Unity's managed dlls are platform specific. this also goes for libraries like FMOD too.
+You can also use the built-in mod Shop. You can also change the URL MangoCore uses to fetch the Shop's mods in the Settings.
 
 ## Build
 
